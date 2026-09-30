@@ -34,7 +34,7 @@ export default function Lightbox({ items, index, onClose, onNext, onPrev }) {
       role="dialog"
       aria-modal="true"
       aria-label={`Gallery image: ${item.title}`}
-      className="fixed inset-0 z-[70] flex flex-col bg-forest-950/96 backdrop-blur-sm"
+      className="fixed inset-0 z-[1100] flex flex-col bg-forest-950/96 backdrop-blur-sm"
       onClick={onClose}
     >
       <div className="flex items-center justify-between gap-4 px-4 py-3.5 sm:px-6">

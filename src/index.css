@@ -361,6 +361,71 @@
       transform: translateX(3px);
     }
   }
+
+  /* ------------------------------------------------------------------
+     Floating action buttons — fixed circular Call / WhatsApp actions.
+     Defined after the .btn-* rules so these win on equal specificity.
+     ------------------------------------------------------------------ */
+  .fab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 3.5rem;
+    height: 3.5rem;
+    padding: 0;
+    border-radius: 9999px;
+    color: #fff;
+    line-height: 1;
+    transition:
+      background-color 200ms var(--ease-out-soft),
+      transform 200ms var(--ease-out-soft),
+      box-shadow 200ms var(--ease-out-soft);
+
+    &:hover {
+      transform: scale(1.07);
+    }
+
+    &:active {
+      transform: scale(0.96);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--color-clay-300);
+      outline-offset: 3px;
+    }
+  }
+
+  /* WhatsApp brand green. */
+  .fab-whatsapp {
+    background-color: #25d366;
+    box-shadow:
+      0 10px 24px -8px rgb(37 211 102 / 55%),
+      0 2px 6px rgb(0 0 0 / 14%);
+
+    &:hover {
+      background-color: #1fbe5a;
+      box-shadow:
+        0 16px 32px -8px rgb(37 211 102 / 70%),
+        0 4px 10px rgb(0 0 0 / 18%);
+    }
+  }
+
+  /* Deep tone from the site palette (forest-950), so the call action reads
+     as part of the brand rather than a foreign navy. */
+  .fab-call {
+    background-color: var(--color-forest-950);
+    box-shadow:
+      0 10px 24px -8px rgb(12 26 19 / 60%),
+      0 2px 6px rgb(0 0 0 / 16%);
+
+    &:hover {
+      background-color: var(--color-forest-900);
+      box-shadow:
+        0 16px 32px -8px rgb(12 26 19 / 75%),
+        0 4px 10px rgb(0 0 0 / 20%);
+    }
+  }
 }
 
 /* ==========================================================================
@@ -396,6 +461,11 @@
 
   .reveal {
     opacity: 1;
+    transform: none;
+  }
+
+  .fab:hover,
+  .fab:active {
     transform: none;
   }
 }

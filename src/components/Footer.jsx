@@ -119,9 +119,9 @@ export default function Footer() {
       </div>
 
       <div className="stitch-top border-ivory/10">
-        {/* Bottom padding clears the side-by-side mobile contact row above it;
-            right padding keeps this row out of the stacked desktop corner. */}
-        <div className="container-page flex flex-col items-center justify-between gap-3 pt-5 pb-20 sm:flex-row sm:pr-24 sm:pb-5">
+        {/* Bottom padding lifts this row above the fixed contact stack on
+            mobile; right padding keeps it clear of the corner from `sm` up. */}
+        <div className="container-page flex flex-col items-center justify-between gap-3 pt-5 pb-36 sm:flex-row sm:pr-24 sm:pb-5">
           <p className="text-[0.8125rem] text-forest-300">
             © {year} {site.name}. All rights reserved.
           </p>
