@@ -374,6 +374,9 @@
     width: 3.5rem;
     height: 3.5rem;
     padding: 0;
+    /* Clears the .btn-primary flex gap, which would otherwise insert 8px of
+       empty space after the icon and shift it off-centre. */
+    gap: 0;
     border-radius: 9999px;
     color: #fff;
     line-height: 1;
