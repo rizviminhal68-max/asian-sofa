@@ -1,0 +1,401 @@
+@import 'tailwindcss';
+
+/* ==========================================================================
+   ASIAN SOFA — DESIGN TOKENS
+   Visual identity: deep forest green + warm ivory + muted terracotta/copper.
+   Deliberately different from typical blue SaaS-style service templates.
+   ========================================================================== */
+
+@theme {
+  /* ---- Type ---------------------------------------------------------- */
+  --font-display: 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    sans-serif;
+
+  /* ---- Charcoal / ink (text + surfaces) ------------------------------- */
+  --color-ink-950: #1b1815;
+  --color-ink-900: #241f1a;
+  --color-ink-800: #332c25;
+  --color-ink-700: #4a423a;
+  --color-ink-600: #5c534a;
+  --color-ink-500: #6f655c;
+  --color-ink-400: #8c8177;
+  --color-ink-300: #b3a99f;
+
+  /* ---- Deep forest green (primary brand) ----------------------------- */
+  --color-forest-950: #0c1a13;
+  --color-forest-900: #12281d;
+  --color-forest-800: #1a3a2a;
+  --color-forest-700: #234c37;
+  --color-forest-600: #2f6349;
+  --color-forest-500: #3f7d5d;
+  --color-forest-400: #5d9c7a;
+  --color-forest-300: #8cbe9f;
+  --color-forest-200: #bbdcc6;
+  --color-forest-100: #deede3;
+  --color-forest-50: #eff6f1;
+
+  /* ---- Warm ivory / sand (canvas) ------------------------------------ */
+  --color-ivory: #fbf8f2;
+  --color-ivory-deep: #f4eee3;
+  --color-sand: #ede3d3;
+  --color-sand-deep: #e1d4bf;
+
+  /* ---- Muted terracotta / copper (accent) ---------------------------- */
+  --color-clay-900: #5d2d18;
+  --color-clay-800: #7a3d22;
+  --color-clay-700: #94502e;
+  --color-clay-600: #ac6139;
+  --color-clay-500: #c27648;
+  --color-clay-400: #d59566;
+  --color-clay-300: #e4b793;
+  --color-clay-200: #f0d6c4;
+  --color-clay-100: #f8ebe2;
+
+  /* ---- Motion -------------------------------------------------------- */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ---- Layout -------------------------------------------------------- */
+  --spacing-header: 4.25rem;
+}
+
+/* ==========================================================================
+   SELF-HOSTED FONTS (latin + latin-ext subsets, variable weight axes)
+   Self-hosted to avoid render-blocking third-party requests.
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/fraunces-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/fraunces-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+20A0-20AB, U+20AD-20C0,
+    U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('/fonts/manrope-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('/fonts/manrope-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+20A0-20AB, U+20AD-20C0,
+    U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--spacing-header) + 1rem);
+    /* `clip` (not `hidden`) contains stray decorative overflow without
+       creating a scroll container — which would break `position: sticky`
+       and the browser's native lazy-image loading. */
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-ink-900);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Fallback for browsers without `overflow: clip` support. */
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Visible, on-brand focus ring for keyboard users only. */
+  :focus-visible {
+    outline: 2px solid var(--color-clay-600);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-clay-300);
+    color: var(--color-ink-950);
+  }
+
+  img,
+  svg,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* Make in-page anchors clear of the sticky header. */
+  [id] {
+    scroll-margin-top: calc(var(--spacing-header) + 1.5rem);
+  }
+}
+
+/* ==========================================================================
+   CUSTOM UTILITIES
+   ========================================================================== */
+
+/* Small uppercase eyebrow label used above every section heading. */
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* "Stitched" divider — signature motif borrowed from upholstery. */
+@utility stitch-top {
+  border-top: 1px dashed
+    color-mix(in oklab, var(--color-ink-900) 25%, transparent);
+}
+
+@utility stitch-b {
+  border-bottom: 1px dashed
+    color-mix(in oklab, var(--color-ink-900) 25%, transparent);
+}
+
+/* Arched top — premium furniture-showroom silhouette. */
+@utility arch {
+  border-radius: 9999px 9999px 0.75rem 0.75rem;
+}
+
+/* Subtle warm paper grain for large flat surfaces. */
+@utility grain {
+  position: relative;
+  isolation: isolate;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E");
+  }
+}
+
+/* Faint grid, like measuring paper in a workshop. */
+@utility grid-paper {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in oklab, currentColor 8%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, currentColor 8%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 56px 56px;
+}
+
+/* Hide scrollbar on horizontal filter rails while keeping it scrollable. */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   COMPONENT PRIMITIVES
+   ========================================================================== */
+
+@layer components {
+  /* Content max width — keeps line lengths readable on 1920px displays. */
+  .container-page {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 80rem;
+    padding-inline: 1.25rem;
+
+    @media (min-width: 640px) {
+      padding-inline: 2rem;
+    }
+
+    @media (min-width: 1280px) {
+      padding-inline: 3rem;
+    }
+  }
+
+  .container-prose {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 46rem;
+  }
+
+  /* Primary CTA — terracotta, high contrast. */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--color-clay-600);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    line-height: 1;
+    padding: 0.9375rem 1.5rem;
+    border-radius: 0.375rem;
+    transition:
+      background-color 180ms var(--ease-out-soft),
+      transform 180ms var(--ease-out-soft),
+      box-shadow 180ms var(--ease-out-soft);
+
+    &:hover {
+      background-color: var(--color-clay-700);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px -12px
+        color-mix(in oklab, var(--color-clay-800) 70%, transparent);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  /* Secondary CTA — outlined, adapts to light or dark backgrounds. */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: transparent;
+    color: currentColor;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    line-height: 1;
+    padding: 0.9375rem 1.5rem;
+    border-radius: 0.375rem;
+    border: 1.5px solid currentColor;
+    transition:
+      background-color 180ms var(--ease-out-soft),
+      color 180ms var(--ease-out-soft),
+      transform 180ms var(--ease-out-soft);
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+  }
+
+  .btn-outline-on-light:hover {
+    background-color: var(--color-forest-900);
+    border-color: var(--color-forest-900);
+    color: var(--color-ivory);
+  }
+
+  .btn-outline-on-dark:hover {
+    background-color: var(--color-ivory);
+    border-color: var(--color-ivory);
+    color: var(--color-forest-900);
+  }
+
+  /* Small WhatsApp / call buttons used in dense contexts. */
+  .btn-sm {
+    padding: 0.6875rem 1.125rem;
+    font-size: 0.8125rem;
+  }
+
+  /* Text link with animated underline. */
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--color-forest-700);
+
+    svg {
+      transition: transform 200ms var(--ease-out-soft);
+    }
+
+    &:hover svg {
+      transform: translateX(3px);
+    }
+  }
+}
+
+/* ==========================================================================
+   SCROLL REVEAL ANIMATION
+   ========================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 620ms var(--ease-out-soft),
+    transform 620ms var(--ease-out-soft);
+}
+
+.reveal[data-visible='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Respect users who ask for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

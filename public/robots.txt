@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# No admin or private areas exist on this site.
+Disallow: /.env
+Disallow: /node_modules/
+
+Sitemap: https://www.asiansofa.in/sitemap.xml

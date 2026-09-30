@@ -1,0 +1,24 @@
+# Normalize line endings: store LF in the repository, check out per platform.
+* text=auto eol=lf
+
+# Windows-only
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Keep these binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.eot binary
+
+# Lockfiles and generated data
+package-lock.json -diff
+public/sitemap.xml -diff

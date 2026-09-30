@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Foam Replacement">
+  <defs>
+    <linearGradient id="bg-7sb6zj" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbf8f2"/>
+      <stop offset="1" stop-color="#ede3d3"/>
+    </linearGradient>
+    <filter id="grain-7sb6zj" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.12"/></feComponentTransfer>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg-7sb6zj)"/>
+
+  <!-- measuring-paper grid -->
+  <g stroke="#8c8177" stroke-opacity="0.14" stroke-width="1">
+    <path d="M0 0V800"/><path d="M60 0V800"/><path d="M120 0V800"/><path d="M180 0V800"/><path d="M240 0V800"/><path d="M300 0V800"/><path d="M360 0V800"/><path d="M420 0V800"/><path d="M480 0V800"/><path d="M540 0V800"/><path d="M600 0V800"/><path d="M660 0V800"/><path d="M720 0V800"/><path d="M780 0V800"/><path d="M840 0V800"/><path d="M900 0V800"/><path d="M960 0V800"/><path d="M1020 0V800"/><path d="M1080 0V800"/><path d="M1140 0V800"/><path d="M1200 0V800"/>
+    <path d="M0 0H1200"/><path d="M0 60H1200"/><path d="M0 120H1200"/><path d="M0 180H1200"/><path d="M0 240H1200"/><path d="M0 300H1200"/><path d="M0 360H1200"/><path d="M0 420H1200"/><path d="M0 480H1200"/><path d="M0 540H1200"/><path d="M0 600H1200"/><path d="M0 660H1200"/><path d="M0 720H1200"/><path d="M0 780H1200"/><path d="M0 840H1200"/>
+  </g>
+
+  <!-- subject line art -->
+  <g transform="translate(269.3333333333333 152) scale(1.6533333333333333)"
+     fill="none" stroke="#234c37" stroke-width="3.2"
+     stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.85">
+    
+    <rect x="58" y="106" width="284" height="52" rx="10"/>
+    <rect x="58" y="166" width="284" height="52" rx="10"/>
+    <rect x="58" y="226" width="284" height="46" rx="10"/>
+    <path d="M58 132h284M58 192h284"/>
+    <path d="M92 106v166M150 106v166M208 106v166M266 106v166" stroke-dasharray="3 9"/>
+  </g>
+
+  <!-- stitched inner border -->
+  <rect x="22" y="22" width="1156" height="756" rx="10" fill="none"
+        stroke="#8c8177" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="7 9"/>
+
+  <rect width="1200" height="800" filter="url(#grain-7sb6zj)" opacity="0.5"/>
+
+  <!-- label -->
+  <g font-family="Manrope, Segoe UI, sans-serif">
+    <text x="52" y="726" font-size="17" font-weight="700" letter-spacing="3.6"
+          fill="#8c8177" fill-opacity="0.9">ASIAN SOFA · GURUGRAM</text>
+    <text x="52" y="756" font-size="25" font-weight="700" letter-spacing="0.2"
+          fill="#241f1a">Foam Replacement</text>
+  </g>
+</svg>
