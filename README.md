@@ -27,7 +27,7 @@ npm run dev      # dev server, HMR
 npm run lint     # oxlint
 npm run build    # production build -> dist/
 npm run preview  # serve the built dist/ locally
-npm run images   # regenerate placeholder artwork
+npm run images   # legacy: writes the old SVG placeholders (do not run)
 ```
 
 ## Environment
@@ -63,21 +63,21 @@ All copy lives in `src/content/` — no text is hard-coded inside components.
 > founding year, team size, social profiles, prices, review counts) is
 > deliberately **absent** rather than invented. Add it here as real facts arrive.
 
-## Replacing the placeholder images
+## Replacing the images
 
-Every image is a generated SVG placeholder in `public/images/`. They are
-intentionally obvious, so nobody mistakes them for real work.
+Every image currently in `public/images/` is free, commercially-usable stock
+photography (StockSnap and the WordPress Photo Directory, both CC0). These are
+stand-ins until the client supplies photos of their own completed work.
 
-To swap in real photography:
+To swap in the client's photography:
 
 1. Drop the file into `public/images/` (keep the filename, or rename it).
 2. Update the matching entry in `src/content/images.js`, including the real
    `width`/`height` (this prevents layout shift) and a descriptive `alt`.
 3. Re-run `npm run lint && npm run build`.
 
-The generator is `scripts/generate-placeholders.mjs`. Running `npm run images`
-overwrites all placeholder files, so do **not** run it after replacing assets
-unless you intend to regenerate them.
+The legacy placeholder generator is `scripts/generate-placeholders.mjs`. Do
+**not** run `npm run images` — it writes the old SVG placeholders back.
 
 ## Contact form
 
@@ -141,8 +141,8 @@ Per-page metadata, canonicals, Open Graph and Twitter tags are set by
 `public/sitemap.xml` and `public/robots.txt` are hand-maintained — update
 `sitemap.xml` when adding or removing a guide.
 
-> `og-asian-sofa.svg` is an SVG. Some social platforms will not render SVG
-> previews; supply a 1200×630 PNG/JPG before launch.
+> `og-asian-sofa.jpg` is a 1200×630 JPEG suitable for social previews. Replace
+> it with a branded image before launch if desired.
 
 ## Design system
 

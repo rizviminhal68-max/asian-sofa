@@ -78,7 +78,7 @@ export const localBusinessJsonLd = (biz = site) => ({
   description: biz.shortDescription,
   url: `${SITE_URL}/`,
   logo: `${SITE_URL}/favicon.svg`,
-  image: `${SITE_URL}/images/og-asian-sofa.svg`,
+  image: `${SITE_URL}/images/og-asian-sofa.jpg`,
   telephone: PHONE_E164,
   address: {
     '@type': 'PostalAddress',
@@ -178,7 +178,7 @@ export function useSeo({
   title,
   description,
   path = '/',
-  image = '/images/og-asian-sofa.svg',
+  image = '/images/og-asian-sofa.jpg',
   type = OG_TYPE_DEFAULT,
   jsonLd = [],
   noindex = false,
